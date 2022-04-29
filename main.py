@@ -9,7 +9,7 @@ def print_array(a):
 
 
 def calcs_var_series(a):
-    print('Вариационный ряд')
+    print('Вариационный ряд:')
     print_array(a)
     print(f'Первая порядковая статистика: {a[0]}')
     print(f'N-я порядковая статистика: {a[-1]}')
@@ -34,9 +34,9 @@ def calc_all(a):
         if prev+1 == len(sample_set):
             break
         print(f'F*(x) = {emp[i]} при {sample_set[prev]} < x <= {sample_set[prev+1]}')
-    print(f'F*(x) = {1} при x >= {sample_set[-1]}')
+    print(f'F*(x) = {1} при x > {sample_set[-1]}')
     e_x = np.linspace(sample_set[0] - 0.5, sample_set[-1] + 0.5, 1000)
-    e_y = [emp_func(i, sample_set, relative_frequencies) for i in x]
+    e_y = [emp_func(i, sample_set, relative_frequencies) for i in e_x]
 
     m = math.ceil(1 + math.log2(len(sample_set)))
     h = (sample_set[-1] - sample_set[0]) / m
